@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+
+<robot name="theia_arm">
+  <link name="base_link" />
+
+  <joint name="fixed_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="arm_base"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <link name="arm_base">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://theia_visualization/model/stl_files/arm_base.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint0" type="continuous">
+    <parent link="arm_base"/>
+    <child link="link0"/>
+    <axis xyz = "0 0 1" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <link name="link0">
+    <visual>
+      <origin rpy="0 0 -3.1415" xyz="0 0 0.35"/>
+      <geometry>
+        <mesh filename="package://theia_visualization/model/stl_files/link0.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint1" type="continuous">
+    <parent link="link0"/>
+    <child link="link1"/>
+    <axis xyz = "1 0 0" />
+    <origin rpy="0 0 0" xyz="0 0 1"/>
+  </joint>
+
+  <link name="link1">
+    <visual>
+      <origin rpy="-0.8 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://theia_visualization/model/stl_files/link1.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint2" type="continuous">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <axis xyz = "1 0 0" />
+    <origin rpy="0 0 0" xyz="0 0 4.0"/>
+  </joint>
+
+  <link name="link2">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://theia_visualization/model/stl_files/link2.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint3" type="continuous">
+    <parent link="link2"/>
+    <child link="pointlink"/>
+    <axis xyz = "1 0 0" />
+    <origin rpy="0 0 0" xyz="0 0 3.0"/>
+  </joint>
+
+  <link name="pointlink"/>
+
+  <joint name="joint4" type="continuous">
+    <parent link="pointlink"/>
+    <child link="gripper"/>
+    <axis xyz = "0 0 1" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <link name="gripper">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://theia_visualization/model/stl_files/gripper.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+</robot>

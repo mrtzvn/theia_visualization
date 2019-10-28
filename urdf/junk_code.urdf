@@ -1,0 +1,16 @@
+
+  <joint name="joint1" type="continuous">
+    <parent link="link0"/>
+    <child link="link1"/>
+    <axis xyz = "0 0 1" />
+    <origin rpy="0 0 0" xyz="0 0 0.5"/>
+  </joint>
+
+  <link name="link1">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://theia_visualization/model/stl_files/link1.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
